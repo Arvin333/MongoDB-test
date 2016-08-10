@@ -6,7 +6,7 @@ var LikeButton1 = React.createClass({displayName: "LikeButton1",
       }
     });
 
-    var CommentBox = React.createClass({displayName: "CommentBox",
+    var nnn = React.createClass({displayName: "nnn",
       render: function() {
         return (
           React.createElement("div", null, "21")
@@ -15,6 +15,6 @@ var LikeButton1 = React.createClass({displayName: "LikeButton1",
     });
 
     ReactDOM.render(
-      React.createElement(CommentBox, null),
+      React.createElement(LikeButton1, null),
       document.getElementById('example')
     );

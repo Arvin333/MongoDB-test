@@ -5,13 +5,13 @@ var fs = require("fs");
 var bodyParser = require('body-parser');
 
 var COMMENTS_FILE = path.join(__dirname, 'static/data/data.json');
-
+console.log("__dirname"+__dirname)
 app.use(bodyParser()); 
 app.use(express.static("static"));
-app.get('/', function (req, res) {
+app.get('/d', function (req, res) {
   res.send('hello world!');
 });
-app.get('/api/comments', function(req, res) {
+app.get('/data/data', function(req, res) {
   fs.readFile(COMMENTS_FILE, function(err, data) {
     if (err) {
       console.error(err);
@@ -20,7 +20,7 @@ app.get('/api/comments', function(req, res) {
     res.json(JSON.parse(data));
   });
 });
-app.post('/api/comments', function(req, res) {
+app.post('/data/data', function(req, res) {
   fs.readFile(COMMENTS_FILE, function(err, data) {
     if (err) {
       console.error(err);

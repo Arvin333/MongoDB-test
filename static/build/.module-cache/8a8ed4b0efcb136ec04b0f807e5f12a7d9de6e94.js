@@ -102,6 +102,7 @@ var CommentBox = React.createClass({displayName: "CommentBox",
 	}
 
 });
+
 ReactDOM.render(
 	React.createElement(CommentBox, {url: "/data/data", className: "CommentBox"}),
 	document.getElementById("content")

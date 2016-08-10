@@ -1,15 +1,7 @@
-var CommentForm = React.createClass({displayName: "CommentForm",
-  render: function() {
-    return (
-      React.createElement("form", {className: "commentForm"}, 
-        React.createElement("input", {type: "text", placeholder: "Your name"}), 
-        React.createElement("input", {type: "text", placeholder: "Say something..."}), 
-        React.createElement("input", {type: "submit", value: "Post"})
-      )
-    );
-  }
-});
-
+var data = [
+  {author: "Pete Hunt", text: "This is one comment"},
+  {author: "Jordan Walke", text: "This is *another* comment"}
+];
 var CommentList = React.createClass({displayName: "CommentList",
 	
 	render: function() {
@@ -29,27 +21,15 @@ var CommentList = React.createClass({displayName: "CommentList",
 });
 
 var CommentForm = React.createClass({displayName: "CommentForm",
-  handleSubmit: function(e) {
-    e.preventDefault();
-    var author = this.refs.author.value.trim();
-    var text = this.refs.text.value.trim();
-    if (!text || !author) {
-      return;
-    }
-    // TODO: send request to the server
-    this.refs.author.value = '';
-    this.refs.text.value = '';
-    return;
-  },
-  render: function() {
-    return (
-      React.createElement("form", {className: "commentForm", onSubmit: this.handleSubmit}, 
-        React.createElement("input", {type: "text", placeholder: "Your name", ref: "author"}), 
-        React.createElement("input", {type: "text", placeholder: "Say something...", ref: "text"}), 
-        React.createElement("input", {type: "submit", value: "Post"})
-      )
-    );
-  }
+
+	render: function() {
+		return (
+			React.createElement("div", {className: "commentForm"}, 
+				"hello world! I am a commentForm."
+			)
+		);
+	}
+
 });
 
 var Comment = React.createClass({displayName: "Comment",
@@ -70,8 +50,8 @@ var Comment = React.createClass({displayName: "Comment",
 });
 
 var CommentBox = React.createClass({displayName: "CommentBox",
-
 	getInitialState: function() {
+		console.log("data")
 	    return {data: []};
 	 },
 	loadCommentsFromServer: function() {
@@ -89,19 +69,19 @@ var CommentBox = React.createClass({displayName: "CommentBox",
 	},
 	componentDidMount: function() {
 	  this.loadCommentsFromServer();
-	  setInterval(this.loadCommentsFromServer, 2000);
+	  setInterval(this.loadCommentsFromServer, 1000);
 	},
 	render: function() {
 		return (
 			React.createElement("div", {className: "commentBox"}, 
 				React.createElement("h1", null, "commentBox"), 
-
 				React.createElement(CommentList, {data: this.state.data})
 			)
 		);
 	}
 
 });
+
 ReactDOM.render(
 	React.createElement(CommentBox, {url: "/data/data", className: "CommentBox"}),
 	document.getElementById("content")

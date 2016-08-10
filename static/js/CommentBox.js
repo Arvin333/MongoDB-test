@@ -1,8 +1,17 @@
-var data = [
-  {author: "Pete Hunt", text: "This is one comment"},
-  {author: "Jordan Walke", text: "This is *another* comment"}
-];
+var CommentForm = React.createClass({
+  render: function() {
+    return (
+      <form className="commentForm">
+        <input type="text" placeholder="Your name" />
+        <input type="text" placeholder="Say something..." />
+        <input type="submit" value="Post" />
+      </form>
+    );
+  }
+});
+
 var CommentList = React.createClass({
+	
 	render: function() {
 		var commentNodes = this.props.data.map(function (comment,i) {
 			return (
@@ -17,19 +26,30 @@ var CommentList = React.createClass({
 			</div>
 		);
 	}
-
 });
 
 var CommentForm = React.createClass({
-
-	render: function() {
-		return (
-			<div className="commentForm">
-				hello world! I am a commentForm.
-			</div>
-		);
-	}
-
+  handleSubmit: function(e) {
+    e.preventDefault();
+    var author = this.refs.author.value.trim();
+    var text = this.refs.text.value.trim();
+    if (!text || !author) {
+      return;
+    }
+    // TODO: send request to the server
+    this.refs.author.value = '';
+    this.refs.text.value = '';
+    return;
+  },
+  render: function() {
+    return (
+      <form className="commentForm" onSubmit={this.handleSubmit}>
+        <input type="text" placeholder="Your name" ref="author" />
+        <input type="text" placeholder="Say something..." ref="text" />
+        <input type="submit" value="Post" />
+      </form>
+    );
+  }
 });
 
 var Comment = React.createClass({
@@ -51,18 +71,38 @@ var Comment = React.createClass({
 
 var CommentBox = React.createClass({
 
+	getInitialState: function() {
+	    return {data: []};
+	 },
+	loadCommentsFromServer: function() {
+	  $.ajax({
+	    url: this.props.url,
+	    dataType: 'json',
+	    cache: false,
+	    success: function(data) {
+	      this.setState({data: data});
+	    }.bind(this),
+	    error: function(xhr, status, err) {
+	      console.error(this.props.url, status, err.toString());
+	    }.bind(this)
+	  });
+	},
+	componentDidMount: function() {
+	  this.loadCommentsFromServer();
+	  setInterval(this.loadCommentsFromServer, 2000);
+	},
 	render: function() {
 		return (
 			<div className="commentBox" >
 				<h1>commentBox</h1>
-				<CommentList data={this.props.data} />
+
+				<CommentList data={this.state.data} />
 			</div>
 		);
 	}
 
 });
-
 ReactDOM.render(
-	<CommentBox  data={data} />,
+	<CommentBox  url="/data/data" className="CommentBox" />,
 	document.getElementById("content")
 )

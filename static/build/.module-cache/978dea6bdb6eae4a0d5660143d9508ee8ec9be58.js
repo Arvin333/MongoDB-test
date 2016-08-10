@@ -70,7 +70,6 @@ var Comment = React.createClass({displayName: "Comment",
 });
 
 var CommentBox = React.createClass({displayName: "CommentBox",
-
 	getInitialState: function() {
 	    return {data: []};
 	 },
@@ -95,13 +94,14 @@ var CommentBox = React.createClass({displayName: "CommentBox",
 		return (
 			React.createElement("div", {className: "commentBox"}, 
 				React.createElement("h1", null, "commentBox"), 
-
-				React.createElement(CommentList, {data: this.state.data})
+				React.createElement(CommentList, {data: this.state.data}), 
+			React.createElement("p", null, "lalalal")
 			)
 		);
 	}
 
 });
+
 ReactDOM.render(
 	React.createElement(CommentBox, {url: "/data/data", className: "CommentBox"}),
 	document.getElementById("content")

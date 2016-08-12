@@ -9,68 +9,45 @@
     <script src="./lib/jquery.min.js"></script>
     <script src="./lib/marked.min.js"></script>
     <script src="./lib/JSXTransformer.js"></script>
-    <!-- <script src="./lib/remarkable.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="css.css">
   </head>
   <body>
-     <div id="example"></div>
-     <!--<script type="text/babel" src="build/CommentBox.js"></script>-->
-     <script type="text/jsx">
-       
-      var TickTock = React.createClass({
-        getDefaultProps : function  () {
-          console.log("getDefaultProps")
-        },
-        getInitialState:function  () {
-          
-          console.log("getInitialState")
-          return {data:{
-            "time":0
-          }};
-        },
-        componentWillMount:function  () {
-          console.log("componentWillMount")
-        },
-        render: function() {
-
-          console.log('render')
-          return (
-            <p>
-              React has been running {this.state.data.time}
-            </p>
-          );
-        },
-        componentDidMount:function  () {
-          console.log("componentDidMount");
-          var _self = this;
-          var nub = this.state.data.time+1;
-          var data = {
-            "time":nub
-          }
-            _self.setState({data:data})
-        },
-        componentWillReceiveProps:function  () {
-          console.log("componentWillReceiveProps")
-        },
-        shouldComponentUpdate:function  () {
-          console.log("shouldComponentUpdate")
-          return true;
-        },
-        componentWillUpdate:function  () {
-          console.log("componentWillUpdate")
-        },
-        componentDidUpdate:function  () {
-          console.log("componentDidUpdate")
-        },
-        componentWillUnmount:function  () {
-          console.log("componentWillUnmount")
-        }
-       });
-
-
-       ReactDOM.render(
-         <TickTock />,
-         document.getElementById('example')
-       );
-     </script>
+     <div id="content"></div>
+     <!-- <div class="main" class="">
+       <div class="wrap">
+        <nav>
+          <ul>
+            <li>
+              <div class="photo">
+                <img src="./img/photo.gif" alt="头像">
+              </div>
+              <div class="nick">Arvin21212121 s</div>
+            </li>
+          </ul>
+        </nav>
+        <div class="msgWrap">
+          <ul>
+            <li>
+              <div class="photo">
+                <img src="./img/photo.gif" alt="头像">
+              </div>
+              <div class="msgBox">Arvin21212121 s</div>
+            </li>
+            <li>
+              <div class="photo">
+                <img src="./img/photo.gif" alt="头像">
+              </div>
+              <div class="msgBox">div</div>
+            </li>
+          </ul>
+        </div>
+        <div class="inputBox">
+        </div>
+       </div>
+     </div> 
+     <footer>
+     </footer> -->
+      <script type="text/babel" src="build/test.js"></script>
+    
    </body>
 </html>

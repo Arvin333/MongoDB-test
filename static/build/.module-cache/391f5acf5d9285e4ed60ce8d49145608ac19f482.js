@@ -76,7 +76,7 @@ var CommentBox = React.createClass({displayName: "CommentBox",
 	 },
 	loadCommentsFromServer: function() {
 	  $.ajax({
-	    url: "http://www.tuling123.com/openapi/api?key=fe20e352e27640419d80196b369fc9a7",
+	    url: this.props.url,
 	    dataType: 'json',
 	    cache: false,
 	    success: function(data) {
@@ -95,7 +95,6 @@ var CommentBox = React.createClass({displayName: "CommentBox",
 		return (
 			React.createElement("div", {className: "commentBox"}, 
 				React.createElement("h1", null, "commentBox"), 
-
 				React.createElement(CommentList, {data: this.state.data})
 			)
 		);

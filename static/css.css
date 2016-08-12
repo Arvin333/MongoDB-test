@@ -1,0 +1,106 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  min-width: 980px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+nav {
+  position: absolute;
+  width: 220px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: 1px solid #ccc;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav ul li {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  float: left;
+  border-bottom: 1px solid #ccc;
+}
+
+nav li img {
+  width: 60px;
+  height: 60px;
+}
+
+nav .photo {
+  display: inline-block;
+  margin: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #ccc;
+  overflow: hidden;
+}
+
+.nick {
+  margin: 10px 0;
+  width: 110px;
+  height: 60px;
+  color: #777;
+  font-weight: bold;
+  line-height: 60px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+
+.msgWrap{
+  position: relative;
+  width: 100%;
+  margin-left: 220px;
+}
+.msgWrap li{
+  width: 100%;
+  height: 80px;
+}
+.msgWrap .photo{
+    display: inline-block;
+    margin: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #ccc;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.msgWrap li img {
+  width: 60px;
+  height: 60px;
+}
+
+.msgBox{
+  margin: 10px;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 13px;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}

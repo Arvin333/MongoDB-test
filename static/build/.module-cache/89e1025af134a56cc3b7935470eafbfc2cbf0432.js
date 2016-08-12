@@ -76,7 +76,7 @@ var CommentBox = React.createClass({displayName: "CommentBox",
 	 },
 	loadCommentsFromServer: function() {
 	  $.ajax({
-	    url: "http://www.tuling123.com/openapi/api?key=fe20e352e27640419d80196b369fc9a7",
+	    url: "http://www.tuling123.com/openapi/api",
 	    dataType: 'json',
 	    cache: false,
 	    success: function(data) {
@@ -89,7 +89,7 @@ var CommentBox = React.createClass({displayName: "CommentBox",
 	},
 	componentDidMount: function() {
 	  this.loadCommentsFromServer();
-	  setInterval(this.loadCommentsFromServer, 2000);
+	  // setInterval(this.loadCommentsFromServer, 2000);
 	},
 	render: function() {
 		return (

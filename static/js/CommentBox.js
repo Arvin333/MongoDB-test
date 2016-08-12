@@ -76,7 +76,7 @@ var CommentBox = React.createClass({
 	 },
 	loadCommentsFromServer: function() {
 	  $.ajax({
-	    url: this.props.url,
+	    url: "http://www.tuling123.com/openapi/api?key=fe20e352e27640419d80196b369fc9a7",
 	    dataType: 'json',
 	    cache: false,
 	    success: function(data) {
